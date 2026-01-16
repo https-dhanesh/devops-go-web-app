@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops_go_web_app
+  labels:
+    app: devops_go_web_app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devops_go_web_app
+  template:
+    metadata:
+      labels:
+        app: devops_go_web_app
+    spec:
+      containers:
+      - name: nginx
+        image: dhaneshshingade/devops_go_web_app:v1
+        ports:
+        - containerPort: 8080
