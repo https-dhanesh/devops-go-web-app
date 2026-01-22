@@ -1,19 +1,48 @@
-# Go Web Application
+# Go-Web-App-DevOps: End-to-End GitOps Pipeline
+This project demonstrates a production-grade GitOps workflow for a Go-based web application. It transitions from a simple containerized app to a self-healing infrastructure managed by Kubernetes and ArgoCD.
 
-This is a simple website written in Golang. It uses the `net/http` package to serve HTTP requests.
+## Project Overview
+The goal of this project was to move away from manual "imperative" deployments (kubectl apply) toward a "declarative" GitOps model. This ensures that the infrastructure is always in sync with the source code stored in GitHub.
 
-## Running the server
+Core Tech Stack
 
-To run the server, execute the following command:
+    - Language: Go (Golang)
 
-```bash
-go run main.go
+    - Containerization: Docker
+
+    - Orchestration: Kubernetes (Kind - Kubernetes in Docker)
+
+    - Networking: Ingress-Nginx Controller
+
+    - Continuous Deployment: ArgoCD (GitOps)
+
+## Architecture
+
+![Architecture](static/images/Architecture.jpg)
+
+
+### Setup and Installation
+
+#### 1. Cluster Creation
+
+```
+kind create cluster --config kind-config.yaml
 ```
 
-The server will start on port 8080. You can access it by navigating to `http://localhost:8080/courses` in your web browser.
+#### 2. Deploy Ingress Controller
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+```
 
-## Looks like this
+#### 3. GitOps Setup (ArgoCD)
+```
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+```
 
-![Website](static/images/golang-website.png)
 
+### License & Credits
 
+    - Inspiration: This project follows the architecture taught by Abhishek Veeramalla.
+
+    - License: This project is licensed under the Apache License 2.0. See the LICENSE file for details.
