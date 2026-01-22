@@ -1,21 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: devops_go_web_app
+  name: devops-go-web-app
   labels:
-    app: devops_go_web_app
+    app: devops-go-web-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: devops_go_web_app
+      app: devops-go-web-app
   template:
     metadata:
       labels:
-        app: devops_go_web_app
+        app: devops-go-web-app
     spec:
       containers:
-      - name: nginx
-        image: dhaneshshingade/devops_go_web_app:v1
+      - name: devops-go-web-app
+        image: dhaneshshingade/devops-go-web-app:v1
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
