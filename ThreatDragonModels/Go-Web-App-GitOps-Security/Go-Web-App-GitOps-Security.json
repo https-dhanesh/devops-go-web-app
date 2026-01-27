@@ -1,0 +1,26 @@
+{
+  "version": "2.5.0",
+  "summary": {
+    "title": "Go-Web-App-GitOps-Security",
+    "owner": "Dhanesh Shingade",
+    "description": "Threat model for a Go-based web application deployed on a local Kind cluster using GitOps (ArgoCD) and Nginx Ingress.",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [
+      {
+        "id": 0,
+        "title": "System Architecture & Trust Boundaries",
+        "diagramType": "STRIDE",
+        "placeholder": "New STRIDE diagram description",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.5.0",
+        "cells": []
+      }
+    ],
+    "diagramTop": 1,
+    "reviewer": "None",
+    "threatTop": 0
+  }
+}
